@@ -1,9 +1,13 @@
 export default function StartScreen() {
+  function handleClick() {
+    console.log("Quiz started!");
+  }
+
   return (
     <section className="start-screen">
       <h1>Quizzical</h1>
       <p>Some description if needed</p>
-      <button>Start Quiz</button>
+      <button onClick={handleClick}>Start Quiz</button>
     </section>
   );
 }
