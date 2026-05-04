@@ -4,8 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Features to Add
 
-- [ ] Start Screen
-- [ ] Pull 5 Questions from OTDB API
+- [x] Start Screen
+- [x] Pull 5 Questions from OTDB API
 - [ ] Decode question text using "html-entities" npm package
 - [ ] Randomize answer order
 - [ ] Ensure only one answer can be selected (perhaps style labels of radio buttons to look like regular buttons?)
