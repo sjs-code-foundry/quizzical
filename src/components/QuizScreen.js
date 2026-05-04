@@ -9,7 +9,26 @@ export default function QuizScreen(props) {
       return { text: answer, isCorrect: false };
     });
     const correctAnswer = { text: question.correct_answer, isCorrect: true };
-    return [correctAnswer, ...incorrectAnswers];
+    return shuffleAnswers([correctAnswer, ...incorrectAnswers]);
+  }
+
+  function shuffleAnswers(arr) {
+    let currentIndex = arr.length;
+
+    // While elements remain to be shuffled...
+    while (currentIndex != 0) {
+      // ...Pick a remaining element...
+      let randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // ...And swap it with the current element
+      [arr[currentIndex], arr[randomIndex]] = [
+        arr[randomIndex],
+        arr[currentIndex],
+      ];
+    }
+
+    return arr;
   }
 
   function mapQuestionElements() {
