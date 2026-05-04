@@ -66,6 +66,8 @@ section.start-screen > button {
     font-weight: medium;
     color: var(--btn-text-color);
     background-color: var(--btn-bg-color);
+
+    cursor: pointer;
 }
 
 /* --- Background for Start Screen --- */

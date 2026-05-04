@@ -1,6 +1,6 @@
-export default function StartScreen() {
+export default function StartScreen(props) {
   function handleClick() {
-    console.log("Quiz started!");
+    props.setQuizStarted(true);
   }
 
   return (
