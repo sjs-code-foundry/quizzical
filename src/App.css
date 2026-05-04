@@ -4,6 +4,9 @@
 
 :root {
     --background-color: #f5f7fb;
+    --text-color: #293264;
+    --btn-text-color: #f5f7fb;
+    --btn-bg-color: #4d5b9e;
 }
 
 /* ================
@@ -21,7 +24,47 @@
     align-items: center;
     justify-content: center;
 
-    height: 100vh;
+    width: 550px;
+    height: 550px;
+
+    font-family: "Inter", sans-serif;
+
+    border: 1px solid red;
+}
+
+/* ================
+*   Start Screen
+*  ================ */
+
+section.start-screen {
+    text-align: center;
+}
+
+section.start-screen > h1 {
+    margin: 0 auto 7px auto;
 
     font-family: "Karla", sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+section.start-screen > p {
+    margin: 0 auto 29px auto;
+
+    font-size: 1rem;
+    font-weight: regular;
+}
+
+section.start-screen > button {
+    width: 12.0625em;
+    height: 3.25em;
+
+    border: none;
+    border-radius: 1em;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: medium;
+    color: var(--btn-text-color);
+    background-color: var(--btn-bg-color);
 }
