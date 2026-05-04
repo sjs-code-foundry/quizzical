@@ -1,7 +1,36 @@
-export default function QuizScreen() {
+export default function QuizScreen(props) {
+  console.log(props.questions);
+
+  const questionElements = mapQuestionElements();
+
+  function sortAnswers(question) {
+    // const incorrectAnswers = [...question.incorrect_answers];
+    const incorrectAnswers = question.incorrect_answers.map((answer) => {
+      return { text: answer, isCorrect: false };
+    });
+    const correctAnswer = { text: question.correct_answer, isCorrect: true };
+    return [correctAnswer, ...incorrectAnswers];
+  }
+
+  function mapQuestionElements() {
+    props.questions.results.map((question, index) => {
+      console.log(question);
+      const answers = sortAnswers(question);
+      console.log(answers);
+    });
+  }
+
+  function handleSubmit() {
+    console.log("Check my answers!");
+  }
+
   return (
     <section className="quiz-screen">
-      <h1>Quiz Screen</h1>
+      <form id="quiz-questions">
+        {/* Add quiz questions here */}
+        <button onClick={handleSubmit}>Check Answers</button>
+      </form>
+
       <div className="quiz-bubble-container">
         <svg
           className="quiz-bubble-1"
