@@ -3,6 +3,7 @@
 *  ==================== */
 
 :root {
+    --app-width-height: 550px;
     --background-color: #f5f7fb;
     --text-color: #293264;
     --btn-text-color: #f5f7fb;
@@ -24,12 +25,10 @@
     align-items: center;
     justify-content: center;
 
-    width: 550px;
-    height: 550px;
+    width: var(--app-width-height);
+    height: var(--app-width-height);
 
     font-family: "Inter", sans-serif;
-
-    border: 1px solid red;
 }
 
 /* ================
@@ -67,4 +66,34 @@ section.start-screen > button {
     font-weight: medium;
     color: var(--btn-text-color);
     background-color: var(--btn-bg-color);
+}
+
+/* --- Background for Start Screen --- */
+
+:root {
+    --start-bubble-1-width: 158px;
+    --start-bubble-2-height: 118px;
+}
+
+section.start-screen > div.start-bubble-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: var(--app-width-height);
+    height: var(--app-width-height);
+
+    background-color: var(--background-color);
+}
+
+section.start-screen > div.start-bubble-container > svg.start-bubble-1 {
+    position: absolute;
+    left: calc(var(--app-width-height) - var(--start-bubble-1-width));
+}
+
+section.start-screen > div.start-bubble-container > svg.start-bubble-2 {
+    position: absolute;
+    top: calc(var(--app-width-height) - var(--start-bubble-2-height));
+    left: 0;
 }
