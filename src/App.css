@@ -44,14 +44,14 @@ section.start-screen > h1 {
 
     font-family: "Karla", sans-serif;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 section.start-screen > p {
     margin: 0 auto 29px auto;
 
     font-size: 1rem;
-    font-weight: regular;
+    font-weight: 400;
 }
 
 section.start-screen > button {
@@ -63,7 +63,7 @@ section.start-screen > button {
 
     font-family: inherit;
     font-size: 1rem;
-    font-weight: medium;
+    font-weight: 500;
     color: var(--btn-text-color);
     background-color: var(--btn-bg-color);
 
@@ -104,6 +104,22 @@ section.start-screen > div.start-bubble-container > svg.start-bubble-2 {
 /* ================
 *   Quiz Screen
 *  ================ */
+
+section.quiz-screen > form > button {
+    width: 12.0625em;
+    height: 3.25em;
+
+    border: none;
+    border-radius: 1em;
+
+    font-family: inherit;
+    font-size: 0.64rem;
+    font-weight: 600;
+    color: var(--btn-text-color);
+    background-color: var(--btn-bg-color);
+
+    cursor: pointer;
+}
 
 /* --- Background for Quiz Screen --- */
 
