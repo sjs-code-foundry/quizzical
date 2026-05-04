@@ -77,7 +77,8 @@ section.start-screen > button {
     --start-bubble-2-height: 118px;
 }
 
-section.start-screen > div.start-bubble-container {
+section.start-screen > div.start-bubble-container,
+section.quiz-screen > div.quiz-bubble-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -97,5 +98,27 @@ section.start-screen > div.start-bubble-container > svg.start-bubble-1 {
 section.start-screen > div.start-bubble-container > svg.start-bubble-2 {
     position: absolute;
     top: calc(var(--app-width-height) - var(--start-bubble-2-height));
+    left: 0;
+}
+
+/* ================
+*   Quiz Screen
+*  ================ */
+
+/* --- Background for Quiz Screen --- */
+
+:root {
+    --quiz-bubble-1-width: 162px;
+    --quiz-bubble-2-height: 62px;
+}
+
+section.quiz-screen > div.quiz-bubble-container > svg.quiz-bubble-1 {
+    position: absolute;
+    left: calc(var(--app-width-height) - var(--quiz-bubble-1-width));
+}
+
+section.quiz-screen > div.quiz-bubble-container > svg.quiz-bubble-2 {
+    position: absolute;
+    top: calc(var(--app-width-height) - var(--quiz-bubble-2-height));
     left: 0;
 }
