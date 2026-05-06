@@ -42,7 +42,7 @@ export default function QuizScreen(props) {
       });
 
       return (
-        <div key={index}>
+        <div key={index} className="question">
           <p>This is question {index + 1}</p>
         </div>
       );

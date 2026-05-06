@@ -4,6 +4,7 @@
 
 :root {
     --app-width-height: 550px;
+    --quiz-question-width: 400px;
     --background-color: #f5f7fb;
     --text-color: #293264;
     --btn-text-color: #f5f7fb;
@@ -39,6 +40,16 @@ body {
     height: var(--app-width-height);
 
     font-family: "Inter", sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: inherit;
+    height: inherit;
 }
 
 /* ================
@@ -115,6 +126,10 @@ section.start-screen > div.start-bubble-container > svg.start-bubble-2 {
 *   Quiz Screen
 *  ================ */
 
+section.quiz-screen {
+    height: inherit;
+}
+
 section.quiz-screen > form > button {
     width: 12.0625em;
     height: 3.25em;
@@ -129,6 +144,23 @@ section.quiz-screen > form > button {
     background-color: var(--btn-bg-color);
 
     cursor: pointer;
+}
+
+/* --- Questions & Answers --- */
+
+form#quiz-questions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: var(--quiz-question-width);
+    height: inherit;
+}
+
+div.question {
+    /*width: 400px;*/
+    /*height: 100px;*/
 }
 
 /* --- Background for Quiz Screen --- */
