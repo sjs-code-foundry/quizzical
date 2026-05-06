@@ -33,8 +33,16 @@ export default function QuizScreen(props) {
   function mapQuestionElements(questions) {
     const questionElements = questions.results.map((question, index) => {
       const answers = sortAnswers(question);
+      const questionId = `question-${index}`;
 
-      return <Question question={question} key={index} answers={answers} />;
+      return (
+        <Question
+          questionId={questionId}
+          question={question}
+          key={index}
+          answers={answers}
+        />
+      );
     });
     return questionElements;
   }

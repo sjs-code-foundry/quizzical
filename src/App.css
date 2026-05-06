@@ -166,8 +166,29 @@ div.question {
 }
 
 div.answers {
+    display: flex;
+    flex-wrap: wrap;
+
     font-size: 0.64rem;
     font-weight: 500;
+}
+
+label.answer-label {
+    padding: 10px;
+
+    border: 1px solid black;
+}
+
+label.answer-label:hover {
+    background-color: yellow;
+}
+
+input[type="radio"].answer-radio {
+    display: none;
+}
+
+input[type="radio"].answer-radio:checked + label.answer-label {
+    background-color: red;
 }
 
 /* --- Background for Quiz Screen --- */

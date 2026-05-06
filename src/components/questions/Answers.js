@@ -1,10 +1,20 @@
 export default function Answers(props) {
   const answerElements = props.answers.map((answer, index) => {
+    const answerId = `${props.questionId}-${index}`;
+
     return (
-      <label key={index}>
-        {answer.text}
-        <input type="radio" name={props.question} value={answer.isCorrect} />
-      </label>
+      <div key={index} className="answer">
+        <input
+          type="radio"
+          id={answerId}
+          className="answer-radio"
+          name={props.questionId}
+          value={answer.isCorrect}
+        />
+        <label key={index} className="answer-label" htmlFor={answerId}>
+          {answer.text}
+        </label>
+      </div>
     );
   });
 
