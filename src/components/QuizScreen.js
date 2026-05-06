@@ -1,7 +1,5 @@
 export default function QuizScreen(props) {
-  console.log(props.questions);
-
-  const questionElements = mapQuestionElements();
+  const questionElements = mapQuestionElements(props.questions);
 
   function sortAnswers(question) {
     // const incorrectAnswers = [...question.incorrect_answers];
@@ -16,7 +14,7 @@ export default function QuizScreen(props) {
     let currentIndex = arr.length;
 
     // While elements remain to be shuffled...
-    while (currentIndex != 0) {
+    while (currentIndex !== 0) {
       // ...Pick a remaining element...
       let randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
@@ -27,26 +25,40 @@ export default function QuizScreen(props) {
         arr[currentIndex],
       ];
     }
-
     return arr;
   }
 
-  function mapQuestionElements() {
-    props.questions.results.map((question, index) => {
-      console.log(question);
+  function mapQuestionElements(questions) {
+    const questionElements = questions.results.map((question, index) => {
       const answers = sortAnswers(question);
-      console.log(answers);
+
+      const answerElements = answers.map((answer, index) => {
+        return (
+          <label key={index}>
+            {answer.text}
+            <input type="radio" name={answer.text} value={answer.isCorrect} />
+          </label>
+        );
+      });
+
+      return (
+        <div key={index}>
+          <p>This is question {index + 1}</p>
+        </div>
+      );
     });
+    return questionElements;
   }
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     console.log("Check my answers!");
   }
 
   return (
     <section className="quiz-screen">
       <form id="quiz-questions">
-        {/* Add quiz questions here */}
+        {questionElements}
         <button onClick={handleSubmit}>Check Answers</button>
       </form>
 
