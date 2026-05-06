@@ -1,3 +1,5 @@
+import Question from "./questions/Question";
+
 export default function QuizScreen(props) {
   const questionElements = mapQuestionElements(props.questions);
 
@@ -41,11 +43,7 @@ export default function QuizScreen(props) {
         );
       });
 
-      return (
-        <div key={index} className="question">
-          <p>This is question {index + 1}</p>
-        </div>
-      );
+      return <Question question={question} index={index} />;
     });
     return questionElements;
   }
