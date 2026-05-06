@@ -20,6 +20,16 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+
+    background-color: slategray;
+}
+
 .App {
     display: flex;
     align-items: center;
@@ -80,8 +90,8 @@ section.start-screen > button {
 section.start-screen > div.start-bubble-container,
 section.quiz-screen > div.quiz-bubble-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: calc(50vh - (var(--app-width-height) / 2));
+    left: calc(50vw - (var(--app-width-height) / 2));
     z-index: -1;
 
     width: var(--app-width-height);
