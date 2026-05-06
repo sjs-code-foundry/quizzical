@@ -151,7 +151,7 @@ section.quiz-screen > form > button {
 form#quiz-questions {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 
     width: var(--quiz-question-width);
@@ -159,8 +159,15 @@ form#quiz-questions {
 }
 
 div.question {
-    /*width: 400px;*/
-    /*height: 100px;*/
+    font-family: "Karla", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+div.answers {
+    font-size: 0.64rem;
+    font-weight: 500;
 }
 
 /* --- Background for Quiz Screen --- */

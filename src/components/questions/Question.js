@@ -1,7 +1,10 @@
+import Answers from "./Answers";
+
 export default function Question(props) {
   return (
-    <div key={props.index}>
-      <p>This is question {props.index + 1}</p>
+    <div className="question">
+      <p>{props.question.question}</p>
+      <Answers question={props.question.question} answers={props.answers} />
     </div>
   );
 }

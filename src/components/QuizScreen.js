@@ -34,16 +34,7 @@ export default function QuizScreen(props) {
     const questionElements = questions.results.map((question, index) => {
       const answers = sortAnswers(question);
 
-      const answerElements = answers.map((answer, index) => {
-        return (
-          <label key={index}>
-            {answer.text}
-            <input type="radio" name={answer.text} value={answer.isCorrect} />
-          </label>
-        );
-      });
-
-      return <Question question={question} index={index} />;
+      return <Question question={question} key={index} answers={answers} />;
     });
     return questionElements;
   }
