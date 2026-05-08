@@ -130,10 +130,19 @@ section.quiz-screen {
     height: inherit;
 }
 
-section.quiz-screen > form > button {
+div.quiz-end-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: inherit;
+    margin-top: 1em;
+}
+
+button.check-answers-btn {
     width: 12.0625em;
     height: 3.25em;
-    margin: 1.25em auto 0 auto;
+    /*margin: 1.25em auto 0 auto;*/
 
     border: none;
     border-radius: 1em;
@@ -145,10 +154,6 @@ section.quiz-screen > form > button {
     background-color: var(--btn-bg-color);
 
     cursor: pointer;
-}
-
-section.quiz-screen > form > button:disabled {
-    cursor: not-allowed;
 }
 
 /* --- Questions & Answers --- */
@@ -190,7 +195,6 @@ div.answers {
 label.answer-label {
     padding: 0.35em 0.8em;
     min-width: 3.6875em;
-    /*min-height: 21px;*/
 
     border: 0.8px solid #4d5b9e;
     border-radius: 0.5em;
@@ -217,6 +221,10 @@ input[type="radio"].answer-radio:checked + label.answer-label {
 
 .is-wrong {
     background-color: red;
+}
+
+.not-selected {
+    opacity: 0.5;
 }
 
 /* --- Background for Quiz Screen --- */

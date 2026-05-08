@@ -64,9 +64,11 @@ export default function QuizScreen(props) {
     <section className="quiz-screen">
       <form id="quiz-questions">
         {questionElements}
-        <button onClick={handleSubmit}>
-          {quizComplete ? "Play Again" : "Check Answers"}
-        </button>
+        <div className="quiz-end-row">
+          <button className="check-answers-btn" onClick={handleSubmit}>
+            {quizComplete ? "Play Again" : "Check Answers"}
+          </button>
+        </div>
       </form>
 
       <div className="quiz-bubble-container">
