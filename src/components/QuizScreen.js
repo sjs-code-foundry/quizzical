@@ -50,6 +50,9 @@ export default function QuizScreen(props) {
   function handleSubmit(e) {
     e.preventDefault();
     console.log("Check my answers!");
+    // Count correct answers, divide by number of questions to get percentage score
+    //
+    // Apply classes to incorrect answers and correct answers to indicate how player fared
   }
 
   return (
