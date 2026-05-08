@@ -51,21 +51,24 @@ export default function QuizScreen(props) {
     return questionElements;
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
+  function handleSubmit(formData) {
     setQuizComplete(true);
     // Count correct answers, divide by number of questions to get percentage score
-    //
+    console.log(formData);
+
+    for (const value of formData.values()) {
+      console.log(value);
+    }
+
     // Apply classes to incorrect answers and correct answers to indicate how player fared
   }
 
   return (
     <section className="quiz-screen">
-      <form id="quiz-questions">
+      <form id="quiz-questions" action={handleSubmit}>
         {questionElements}
         <div className="quiz-end-row">
-          <button className="check-answers-btn" onClick={handleSubmit}>
+          <button type="submit" className="check-answers-btn">
             {quizComplete ? "Play Again" : "Check Answers"}
           </button>
         </div>
