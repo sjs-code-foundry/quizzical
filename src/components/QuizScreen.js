@@ -1,10 +1,14 @@
+import { useState } from "react";
+
 import Question from "./questions/Question";
 
 export default function QuizScreen(props) {
+  const [quizComplete, setQuizComplete] = useState(false);
+  quizComplete ? console.log("Check my answers!") : console.log("Quiz on!");
+
   const questionElements = mapQuestionElements(props.questions);
 
   function sortAnswers(question) {
-    // const incorrectAnswers = [...question.incorrect_answers];
     const incorrectAnswers = question.incorrect_answers.map((answer) => {
       return { text: answer, isCorrect: false };
     });
@@ -49,7 +53,8 @@ export default function QuizScreen(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Check my answers!");
+
+    setQuizComplete(true);
     // Count correct answers, divide by number of questions to get percentage score
     //
     // Apply classes to incorrect answers and correct answers to indicate how player fared
@@ -59,7 +64,9 @@ export default function QuizScreen(props) {
     <section className="quiz-screen">
       <form id="quiz-questions">
         {questionElements}
-        <button onClick={handleSubmit}>Check Answers</button>
+        <button onClick={handleSubmit}>
+          {quizComplete ? "Play Again" : "Check Answers"}
+        </button>
       </form>
 
       <div className="quiz-bubble-container">

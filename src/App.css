@@ -147,6 +147,10 @@ section.quiz-screen > form > button {
     cursor: pointer;
 }
 
+section.quiz-screen > form > button:disabled {
+    cursor: not-allowed;
+}
+
 /* --- Questions & Answers --- */
 
 form#quiz-questions {
@@ -203,6 +207,16 @@ input[type="radio"].answer-radio {
 input[type="radio"].answer-radio:checked + label.answer-label {
     background-color: #d6dbf5;
     border: 0.8px solid #d6dbf5;
+}
+
+/* --- Utility Classes for Answer Validation --- */
+
+.is-correct {
+    background-color: green;
+}
+
+.is-wrong {
+    background-color: red;
 }
 
 /* --- Background for Quiz Screen --- */
