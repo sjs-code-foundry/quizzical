@@ -133,6 +133,7 @@ section.quiz-screen {
 section.quiz-screen > form > button {
     width: 12.0625em;
     height: 3.25em;
+    margin: 1.25em auto 0 auto;
 
     border: none;
     border-radius: 1em;
@@ -160,23 +161,35 @@ form#quiz-questions {
 
 div.question {
     font-family: "Karla", sans-serif;
-    font-size: 1rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--text-color);
 }
 
+hr.question-underline {
+    margin-top: 1.2em;
+
+    border-top: 0.8px solid #dbdef0;
+}
+
 div.answers {
     display: flex;
+    justify-content: start;
     flex-wrap: wrap;
+    gap: 0.8175em;
+    row-gap: 1.5em;
 
-    font-size: 0.64rem;
+    font-size: 0.5rem;
     font-weight: 500;
 }
 
 label.answer-label {
-    padding: 10px;
+    padding: 0.35em 0.8em;
+    min-width: 3.6875em;
+    /*min-height: 21px;*/
 
-    border: 1px solid black;
+    border: 0.8px solid #4d5b9e;
+    border-radius: 0.5em;
 }
 
 label.answer-label:hover {
@@ -188,7 +201,8 @@ input[type="radio"].answer-radio {
 }
 
 input[type="radio"].answer-radio:checked + label.answer-label {
-    background-color: red;
+    background-color: #d6dbf5;
+    border: 0.8px solid #d6dbf5;
 }
 
 /* --- Background for Quiz Screen --- */

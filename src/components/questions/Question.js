@@ -9,6 +9,7 @@ export default function Question(props) {
         question={props.question.question}
         answers={props.answers}
       />
+      <hr className="question-underline" />
     </div>
   );
 }
