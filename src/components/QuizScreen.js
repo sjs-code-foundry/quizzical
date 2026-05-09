@@ -6,7 +6,7 @@ export default function QuizScreen(props) {
   const [quizComplete, setQuizComplete] = useState(false);
   quizComplete ? console.log("Check my answers!") : console.log("Quiz on!");
 
-  const [results, setResults] = useState([0, 0]);
+  const [results, setResults] = useState([0, 0, 0]);
   console.log(results);
 
   const questionElements = mapQuestionElements(props.questions);
@@ -67,13 +67,12 @@ export default function QuizScreen(props) {
       // Get new questions
     } else {
       let score = 0;
-      let questionCount = 0;
+      let questionCount = props.questions.results.length;
 
       for (const value of formData.values()) {
         const data = JSON.parse(value);
         console.log(data);
 
-        questionCount++;
         if (data.value === true) {
           score++;
         }
@@ -81,7 +80,9 @@ export default function QuizScreen(props) {
         // Apply utility classes to answers
       }
 
-      setResults([score, questionCount]);
+      const scorePercent = (score / questionCount) * 100;
+
+      setResults([score, questionCount, scorePercent]);
 
       setQuizComplete(true);
     }
@@ -94,6 +95,12 @@ export default function QuizScreen(props) {
       <form id="quiz-questions" action={handleSubmit}>
         {questionElements}
         <div className="quiz-end-row">
+          {quizComplete && (
+            <p className="results-line">
+              You scored {results[0]}/{results[1]} ({results[2]}%) correct
+              answers
+            </p>
+          )}
           <button type="submit" className="check-answers-btn">
             {quizComplete ? "Play Again" : "Check Answers"}
           </button>

@@ -133,10 +133,16 @@ section.quiz-screen {
 div.quiz-end-row {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
     width: inherit;
     margin-top: 1em;
+}
+
+p.results-line {
+    color: var(--text-color);
+    font-size: 0.8rem;
+    font-weight: 700;
 }
 
 button.check-answers-btn {
