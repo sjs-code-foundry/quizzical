@@ -55,24 +55,36 @@ export default function QuizScreen(props) {
   }
 
   function handleSubmit(formData) {
-    setQuizComplete(true);
     // Count correct answers, divide by number of questions to get percentage score
 
-    let score = 0;
-    let questionCount = 0;
+    if (quizComplete) {
+      setResults([0, 0]);
 
-    for (const value of formData.values()) {
-      const data = JSON.parse(value);
-      console.log(data);
+      // Unset utility classes from answers
 
-      questionCount++;
+      setQuizComplete(false);
 
-      if (data.value === true) {
-        score++;
+      // Get new questions
+    } else {
+      let score = 0;
+      let questionCount = 0;
+
+      for (const value of formData.values()) {
+        const data = JSON.parse(value);
+        console.log(data);
+
+        questionCount++;
+        if (data.value === true) {
+          score++;
+        }
+
+        // Apply utility classes to answers
       }
-    }
 
-    setResults([score, questionCount]);
+      setResults([score, questionCount]);
+
+      setQuizComplete(true);
+    }
 
     // Apply classes to incorrect answers and correct answers to indicate how player fared
   }
