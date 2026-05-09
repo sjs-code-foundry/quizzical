@@ -80,7 +80,7 @@ export default function QuizScreen(props) {
         // Apply utility classes to answers
       }
 
-      const scorePercent = (score / questionCount) * 100;
+      const scorePercent = Math.round((score / questionCount) * 100);
 
       setResults([score, questionCount, scorePercent]);
 
