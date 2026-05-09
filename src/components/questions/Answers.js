@@ -9,7 +9,10 @@ export default function Answers(props) {
           id={answerId}
           className="answer-radio"
           name={props.questionId}
-          value={answer.isCorrect}
+          value={JSON.stringify({
+            answerId: answerId,
+            value: answer.isCorrect,
+          })}
         />
         <label key={index} className="answer-label" htmlFor={answerId}>
           {answer.text}

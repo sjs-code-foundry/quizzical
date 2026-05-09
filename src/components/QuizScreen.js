@@ -6,6 +6,9 @@ export default function QuizScreen(props) {
   const [quizComplete, setQuizComplete] = useState(false);
   quizComplete ? console.log("Check my answers!") : console.log("Quiz on!");
 
+  const [results, setResults] = useState([0, 0]);
+  console.log(results);
+
   const questionElements = mapQuestionElements(props.questions);
 
   function sortAnswers(question) {
@@ -54,11 +57,22 @@ export default function QuizScreen(props) {
   function handleSubmit(formData) {
     setQuizComplete(true);
     // Count correct answers, divide by number of questions to get percentage score
-    console.log(formData);
+
+    let score = 0;
+    let questionCount = 0;
 
     for (const value of formData.values()) {
-      console.log(value);
+      const data = JSON.parse(value);
+      console.log(data);
+
+      questionCount++;
+
+      if (data.value === true) {
+        score++;
+      }
     }
+
+    setResults([score, questionCount]);
 
     // Apply classes to incorrect answers and correct answers to indicate how player fared
   }
