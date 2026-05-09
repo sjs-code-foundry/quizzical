@@ -77,7 +77,7 @@ export default function QuizScreen(props) {
           score++;
         }
 
-        // Apply utility classes to answers
+        // Apply classes to incorrect answers and correct answers to indicate how player fared
       }
 
       const scorePercent = Math.round((score / questionCount) * 100);
@@ -86,8 +86,6 @@ export default function QuizScreen(props) {
 
       setQuizComplete(true);
     }
-
-    // Apply classes to incorrect answers and correct answers to indicate how player fared
   }
 
   return (
