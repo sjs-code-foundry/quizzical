@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { decode } from "html-entities";
 
 import Question from "./questions/Question";
 
@@ -20,7 +21,7 @@ export default function QuizScreen(props) {
 
   function mapQuestions(questions) {
     const questionObjs = questions.results.map((question) => {
-      const questionText = question.question;
+      const questionText = decode(question.question);
       const answers = sortAnswers(question);
 
       return { question: questionText, answers: answers };

@@ -1,3 +1,5 @@
+import { decode } from "html-entities";
+
 export default function Answers(props) {
   // console.log(props.selectedAnswer);
 
@@ -30,7 +32,7 @@ export default function Answers(props) {
           })}
         />
         <label key={index} className={ansLabelClassNames} htmlFor={answerId}>
-          {answer.text}
+          {decode(answer.text)}
         </label>
       </div>
     );
