@@ -12,6 +12,21 @@
 }
 
 /* ================
+*   Custom Fonts
+*  ================ */
+
+@font-face {
+    font-family: "Inter";
+    src: url("/public/fonts/Inter-VariableFont_opsz,wght.ttf")
+        format("truetype");
+}
+
+@font-face {
+    font-family: "Karla";
+    src: url("/public/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+}
+
+/* ================
 *   General Layout
 *  ================ */
 
@@ -148,7 +163,6 @@ p.results-line {
 button.check-answers-btn {
     width: 12.0625em;
     height: 3.25em;
-    /*margin: 1.25em auto 0 auto;*/
 
     border: none;
     border-radius: 1em;
