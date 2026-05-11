@@ -1,8 +1,6 @@
 import { decode } from "html-entities";
 
 export default function Answers(props) {
-  // console.log(props.selectedAnswer);
-
   const answerElements = props.answers.map((answer, index) => {
     const answerId = `${props.questionId}-${index}`;
     let ansLabelClassNames = "";

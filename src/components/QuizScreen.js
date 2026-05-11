@@ -5,17 +5,9 @@ import Question from "./questions/Question";
 
 export default function QuizScreen(props) {
   const [quizComplete, setQuizComplete] = useState(false);
-  quizComplete ? console.log("Check my answers!") : console.log("Quiz on!");
-  //
   const [answerArr, setAnswerArr] = useState(mapQuestions(props.questions));
-  // console.log(answerArr);
-
   const [results, setResults] = useState([0, 0, 0]);
-  // console.log(results);
-
   const [answerIds, setAnswerIds] = useState(blankAnswerIds(props.questions));
-  console.log(answerIds);
-  // Make above array responsive to number of questions
 
   const questionElements = mapQuestionElements(answerArr);
 
@@ -89,6 +81,8 @@ export default function QuizScreen(props) {
 
       // Trigger effect in App.js to fetch new questions
       props.setQuizCount((prevCount) => Number(prevCount) + 1);
+      // Get new questions
+      setAnswerArr(mapQuestions(props.questions));
       // Deselect utility classes from questions
       setAnswerIds(blankAnswerIds(props.questions));
     } else {
@@ -99,7 +93,6 @@ export default function QuizScreen(props) {
 
       for (const value of formData.values()) {
         const data = JSON.parse(value);
-        // console.log(data);
 
         resultsArr.push(data);
 

@@ -1,8 +1,6 @@
 import Answers from "./Answers";
 
 export default function Question(props) {
-  // console.log(props.question);
-
   return (
     <div className="question">
       <p>{props.question}</p>

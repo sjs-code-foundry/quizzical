@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 import { useState, useEffect } from "react";
@@ -12,11 +11,8 @@ function App() {
   const [quizStarted, setQuizStarted] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [quizCount, setQuizCount] = useState([0]);
-  console.log(quizCount);
 
   useEffect(() => {
-    console.log("I will run once!");
-
     const controller = new AbortController();
 
     fetch("https://opentdb.com/api.php?amount=5&difficulty=hard&type=multiple")
