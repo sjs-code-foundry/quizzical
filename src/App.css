@@ -202,7 +202,9 @@ label.answer-label {
     padding: 0.35em 0.8em;
     min-width: 3.6875em;
 
-    border: 0.8px solid #4d5b9e;
+    border-width: 0.8px;
+    border-style: solid;
+    border-color: #4d5b9e;
     border-radius: 0.5em;
 }
 
@@ -216,20 +218,25 @@ input[type="radio"].answer-radio {
 
 input[type="radio"].answer-radio:checked + label.answer-label {
     background-color: #d6dbf5;
-    border: 0.8px solid #d6dbf5;
+    border-width: 0.8px;
+    border-style: solid;
+    border-color: #d6dbf5;
 }
 
 /* --- Utility Classes for Answer Validation --- */
 
-.is-correct {
-    background-color: green;
+label.is-correct {
+    background-color: #94d7a2;
+    border-color: #94d7a2;
 }
 
-.is-wrong {
-    background-color: red;
+label.is-wrong {
+    background-color: #f8bcbc;
+    border-color: #f8bcbc;
+    opacity: 0.5;
 }
 
-.not-selected {
+label.not-selected {
     opacity: 0.5;
 }
 
