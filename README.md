@@ -8,8 +8,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [x] Pull 5 Questions from OTDB API
 - [ ] Decode question text using "html-entities" npm package
 - [x] Randomize answer order
-- [ ] Ensure only one answer can be selected (perhaps style labels of radio buttons to look like regular buttons?)
-- [ ] Tally correct answers after "check answers" is clicked
+- [x] Ensure only one answer can be selected (perhaps style labels of radio buttons to look like regular buttons?)
+- [x] Tally correct answers after "check answers" is clicked
 - [ ] Style according to Figma file: https://www.figma.com/design/J6mQoSLrOdVRgxxbiUmnlH/Quizzical-App--Copy-?node-id=0-1&p=f&t=ZpY9svpCJRMEZERi-0
 
 ## Available Scripts
