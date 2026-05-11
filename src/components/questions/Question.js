@@ -8,6 +8,7 @@ export default function Question(props) {
         questionId={props.questionId}
         question={props.question.question}
         answers={props.answers}
+        selectedAnswer={props.selectedAnswer}
       />
       <hr className="question-underline" />
     </div>

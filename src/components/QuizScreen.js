@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Question from "./questions/Question";
 
 export default function QuizScreen(props) {
   const [quizComplete, setQuizComplete] = useState(false);
-  quizComplete ? console.log("Check my answers!") : console.log("Quiz on!");
+  // quizComplete ? console.log("Check my answers!") : console.log("Quiz on!");
 
   const [results, setResults] = useState([0, 0, 0]);
-  console.log(results);
+  // console.log(results);
+
+  const [answerIds, setAnswerIds] = useState([
+    { answerId: "", value: false },
+    { answerId: "", value: false },
+    { answerId: "", value: false },
+    { answerId: "", value: false },
+    { answerId: "", value: false },
+  ]);
+  console.log(answerIds);
 
   const questionElements = mapQuestionElements(props.questions);
 
@@ -37,10 +46,16 @@ export default function QuizScreen(props) {
     return arr;
   }
 
+  useEffect(() => {
+    // Loop over answers
+  }, []);
+
   function mapQuestionElements(questions) {
     const questionElements = questions.results.map((question, index) => {
       const answers = sortAnswers(question);
       const questionId = `question-${index}`;
+
+      console.log(answerIds);
 
       return (
         <Question
@@ -48,6 +63,7 @@ export default function QuizScreen(props) {
           question={question}
           key={index}
           answers={answers}
+          selectedAnswer={answerIds[index]}
         />
       );
     });
@@ -69,13 +85,19 @@ export default function QuizScreen(props) {
       let score = 0;
       let questionCount = props.questions.results.length;
 
+      let resultsArr = [];
+
       for (const value of formData.values()) {
         const data = JSON.parse(value);
-        console.log(data);
+        // console.log(data);
+
+        resultsArr.push(data);
 
         if (data.value === true) {
           score++;
         }
+
+        setAnswerIds(resultsArr);
 
         // Apply classes to incorrect answers and correct answers to indicate how player fared
       }
