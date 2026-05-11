@@ -1,24 +1,39 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Question from "./questions/Question";
 
 export default function QuizScreen(props) {
   const [quizComplete, setQuizComplete] = useState(false);
   // quizComplete ? console.log("Check my answers!") : console.log("Quiz on!");
+  //
+  const [answerArr, setAnswerArr] = useState(mapQuestions(props.questions));
+  // console.log(answerArr);
 
   const [results, setResults] = useState([0, 0, 0]);
   // console.log(results);
 
-  const [answerIds, setAnswerIds] = useState([
-    { answerId: "", value: false },
-    { answerId: "", value: false },
-    { answerId: "", value: false },
-    { answerId: "", value: false },
-    { answerId: "", value: false },
-  ]);
+  const [answerIds, setAnswerIds] = useState(blankAnswerIds(props.questions));
   console.log(answerIds);
+  // Make above array responsive to number of questions
 
-  const questionElements = mapQuestionElements(props.questions);
+  const questionElements = mapQuestionElements(answerArr);
+
+  function mapQuestions(questions) {
+    const questionObjs = questions.results.map((question) => {
+      const questionText = question.question;
+      const answers = sortAnswers(question);
+
+      return { question: questionText, answers: answers };
+    });
+    return questionObjs;
+  }
+
+  function blankAnswerIds(questions) {
+    const blankObjs = questions.results.map(() => {
+      return { answerId: "", value: false };
+    });
+    return blankObjs;
+  }
 
   function sortAnswers(question) {
     const incorrectAnswers = question.incorrect_answers.map((answer) => {
@@ -46,23 +61,16 @@ export default function QuizScreen(props) {
     return arr;
   }
 
-  useEffect(() => {
-    // Loop over answers
-  }, []);
-
   function mapQuestionElements(questions) {
-    const questionElements = questions.results.map((question, index) => {
-      const answers = sortAnswers(question);
+    const questionElements = questions.map((question, index) => {
       const questionId = `question-${index}`;
-
-      console.log(answerIds);
 
       return (
         <Question
           questionId={questionId}
-          question={question}
+          question={question.question}
           key={index}
-          answers={answers}
+          answers={question.answers}
           selectedAnswer={answerIds[index]}
         />
       );
@@ -75,12 +83,12 @@ export default function QuizScreen(props) {
 
     if (quizComplete) {
       setResults([0, 0]);
-
-      // Unset utility classes from answers
-
       setQuizComplete(false);
 
-      // Get new questions
+      // Trigger effect in App.js to fetch new questions
+      props.setQuizCount((prevCount) => prevCount + 1);
+      // Deselect utility classes from questions
+      setAnswerIds(blankAnswerIds(props.questions));
     } else {
       let score = 0;
       let questionCount = props.questions.results.length;
@@ -98,8 +106,6 @@ export default function QuizScreen(props) {
         }
 
         setAnswerIds(resultsArr);
-
-        // Apply classes to incorrect answers and correct answers to indicate how player fared
       }
 
       const scorePercent = Math.round((score / questionCount) * 100);

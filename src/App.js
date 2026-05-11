@@ -11,6 +11,8 @@ function App() {
 
   const [quizStarted, setQuizStarted] = useState(false);
   const [questions, setQuestions] = useState([]);
+  const [quizCount, setQuizCount] = useState([0]);
+  console.log(quizCount);
 
   useEffect(() => {
     console.log("I will run once!");
@@ -27,13 +29,15 @@ function App() {
       })
       .then((data) => setQuestions(data));
     return () => controller.abort();
-  }, []);
+  }, [quizCount]);
 
   return (
     <div className="App">
       <main>
         {!quizStarted && <StartScreen setQuizStarted={setQuizStarted} />}
-        {quizStarted && <QuizScreen questions={questions} />}
+        {quizStarted && (
+          <QuizScreen questions={questions} setQuizCount={setQuizCount} />
+        )}
       </main>
     </div>
   );

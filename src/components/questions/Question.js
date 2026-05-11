@@ -1,12 +1,14 @@
 import Answers from "./Answers";
 
 export default function Question(props) {
+  // console.log(props.question);
+
   return (
     <div className="question">
-      <p>{props.question.question}</p>
+      <p>{props.question}</p>
       <Answers
         questionId={props.questionId}
-        question={props.question.question}
+        question={props.question}
         answers={props.answers}
         selectedAnswer={props.selectedAnswer}
       />
