@@ -5,10 +5,14 @@ export default function Answers(props) {
     const answerId = `${props.questionId}-${index}`;
     let ansLabelClassNames = "";
 
-    if (props.selectedAnswer.answerId === answerId) {
-      props.selectedAnswer.value
-        ? (ansLabelClassNames = "answer-label is-correct")
-        : (ansLabelClassNames = "answer-label is-wrong");
+    if (props.quizComplete) {
+      if (props.selectedAnswer.answerId === answerId) {
+        props.selectedAnswer.value
+          ? (ansLabelClassNames = "answer-label is-correct")
+          : (ansLabelClassNames = "answer-label is-wrong");
+      } else {
+        ansLabelClassNames = "answer-label not-selected";
+      }
     } else {
       ansLabelClassNames = "answer-label";
     }

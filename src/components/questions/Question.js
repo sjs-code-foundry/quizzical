@@ -11,6 +11,7 @@ export default function Question(props) {
         question={props.question}
         answers={props.answers}
         selectedAnswer={props.selectedAnswer}
+        quizComplete={props.quizComplete}
       />
       <hr className="question-underline" />
     </div>

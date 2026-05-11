@@ -4,7 +4,7 @@ import Question from "./questions/Question";
 
 export default function QuizScreen(props) {
   const [quizComplete, setQuizComplete] = useState(false);
-  // quizComplete ? console.log("Check my answers!") : console.log("Quiz on!");
+  quizComplete ? console.log("Check my answers!") : console.log("Quiz on!");
   //
   const [answerArr, setAnswerArr] = useState(mapQuestions(props.questions));
   // console.log(answerArr);
@@ -72,6 +72,7 @@ export default function QuizScreen(props) {
           key={index}
           answers={question.answers}
           selectedAnswer={answerIds[index]}
+          quizComplete={quizComplete}
         />
       );
     });
