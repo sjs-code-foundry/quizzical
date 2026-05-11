@@ -86,7 +86,7 @@ export default function QuizScreen(props) {
       setQuizComplete(false);
 
       // Trigger effect in App.js to fetch new questions
-      props.setQuizCount((prevCount) => prevCount + 1);
+      props.setQuizCount((prevCount) => Number(prevCount) + 1);
       // Deselect utility classes from questions
       setAnswerIds(blankAnswerIds(props.questions));
     } else {
